@@ -1,6 +1,6 @@
 ---
 title: 'Data Wrangling: January 25, 2017'
-author: "Melinda Higgins"
+author: "Craig Alder"
 date: "January 25, 2017"
 output:
   html_document: default
@@ -154,6 +154,21 @@ Most of these have associated `as.xx()` functions to help you move back and fort
 * `as.factor()`
 * and there are more - just look in help for the various `as.xxx()` functions.
 
+```{r}
+#create character vector
+v3<-c("1","2","3","<.2")
+class (v3)
+#let's force this to be numeric
+v4<- as.numeric(v3)
+v4
+class(v4)
+
+# compare the 4th element of each vector
+v3[4]
+v4[4]
+```
+
+
 ### Make a `data.frame`
 
 Thus far, all of our vectors are of the same length, but they are of different type. The best data object to hold (a) vectors of the same length and (b) of different data types is a `data.frame`. The `data.frame` object is the best form of **TIDY** data where each ROW is a single CASE (or SUBJECT) and each COLUMN is a feature, measurement, or piece of information about that case (i.e. the COLUMNS are the VARIABLES).
@@ -170,6 +185,7 @@ Let's combine v2, v.char, v.int2, and v.log into a `data.frame`. The easiest way
 ```{r}
 # create a data.frame object called "df"
 # combining 4 vectors v2, v.char, v.int2, v.log
+# the parantheses contains the columns)
 df <- data.frame(v2,v.char,v.int2,v.log)
 
 # look at the structure
